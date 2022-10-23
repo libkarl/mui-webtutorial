@@ -1,38 +1,45 @@
 import * as React from "react";
 import type { NextPage } from "next";
-import styled from "styled-components";
+import Head from "next/head";
 import Link from "next/link";
-import { GlobalStyle } from "../styles/globalStyle";
+import Button from "@mui/material/Button";
+import { Add, Settings } from "@mui/icons-material";
+import { styled, Typography } from "@mui/material";
+import { margin } from "@mui/system";
 
-const MenuItem = styled(Link)`
-  font-size: "3rem";
-`;
+const Home: NextPage = () => {
+  const BlueButton = styled(Button)({
+    backgroundColor: "skyblue",
 
-const MenuContainer = styled.div`
-  width: 100%;
-  height: 10vw;
-  margin: auto;
-`;
+    margin: 5,
+    "&:hover": { backgroundColor: "lightblue" },
+    "&disabled": { backgroundColor: "green", color: "white" },
+  });
 
-const MenuPosition = styled.div`
-  margin-top: 1.5rem;
-  display: flex;
-  justify-content: center;
-  gap: 4rem;
-  padding: 1rem;
-`;
-
-export const Home: NextPage = () => {
   return (
-    <MenuContainer>
-      <GlobalStyle />
-      <MenuPosition>
-        <MenuItem href={"/"}>Home</MenuItem>
-        <MenuItem href={"/"}>About</MenuItem>
-        <MenuItem href={"/"}>Portfolio</MenuItem>
-        <MenuItem href={"/"}>Contact</MenuItem>
-      </MenuPosition>
-    </MenuContainer>
+    <>
+      <style jsx global>{`
+        * {
+          font-family: "Roboto", sans-serif;
+        }
+      `}</style>
+      <div>
+        <Button variant="text">Text</Button>
+        <Button startIcon={<Settings />} variant="contained" color="secondary">
+          Settings
+        </Button>
+        <Button startIcon={<Add />} variant="contained" color="success">
+          Add
+        </Button>
+        <Button variant="outlined" disabled>
+          Outlined
+        </Button>
+        <Typography variant="h1" component="p">
+          It uses h1 style but actualy it is p tag
+        </Typography>
+        <BlueButton variant="contained">Unique button</BlueButton>
+      </div>
+    </>
   );
 };
 
