@@ -1,19 +1,15 @@
 import * as React from "react";
 import type { NextPage } from "next";
-import Sidebar from "../components/Sidebar";
-import Feed from "../components/Feed";
-import Rightbar from "../components/Rightbar";
+import Sidebar from "../components/Home/Sidebar";
+import Feed from "../components/Home/Feed";
+import Rightbar from "../components/Home/Rightbar";
 import { Box, Container, Stack } from "@mui/system";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Home/Navbar";
+import Add from "../components/Home/Add";
 
 const Home: NextPage = () => {
   return (
     <>
-      <style jsx global>{`
-        * {
-          font-family: "Roboto", sans-serif;
-        }
-      `}</style>
       <Box>
         <Navbar />
         <Stack direction="row" spacing={2} justifyContent="space-between">
@@ -21,6 +17,7 @@ const Home: NextPage = () => {
           <Feed />
           <Rightbar />
         </Stack>
+        <Add />
       </Box>
     </>
   );
