@@ -3,7 +3,9 @@ import {
   Button,
   ButtonGroup,
   Fab,
+  Grid,
   Modal,
+  Paper,
   TextField,
   Tooltip,
   Typography,
@@ -34,6 +36,13 @@ const UserBox = styled(Box)({
   marginBottom: "20px",
 });
 
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+  padding: "1rem",
+  textAlign: "center",
+  color: theme.palette.text.secondary,
+}));
+
 const Add = () => {
   const [open, setOpen] = useState<boolean>(false);
   return (
@@ -57,7 +66,7 @@ const Add = () => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box width={600} height={380} bgcolor="white" p={4} borderRadius={2}>
+        <Box width={750} height={500} bgcolor="white" p={4} borderRadius={2}>
           <Typography variant="h6" color="gray" textAlign="center">
             Create Post
           </Typography>
@@ -70,8 +79,25 @@ const Add = () => {
               JohnDoe
             </Typography>
           </UserBox>
+          <Grid
+            container
+            direction="row"
+            justifyContent="center"
+            alignItems="center"
+            spacing={2}
+          >
+            <Grid item xs>
+              <Item>xs</Item>
+            </Grid>
+            <Grid item xs={6}>
+              <Item>xs=6</Item>
+            </Grid>
+            <Grid item xs>
+              <Item>xs</Item>
+            </Grid>
+          </Grid>
           <TextField
-            sx={{ width: "100%" }}
+            sx={{ width: "100%", marginTop: "1rem" }}
             id="standard-multiline-static"
             label="Multiline"
             multiline
@@ -91,9 +117,6 @@ const Add = () => {
             aria-label="outlined primary button group"
           >
             <Button>Post</Button>
-            <Button sx={{ width: "100px" }}>
-              <DateRange />
-            </Button>
           </ButtonGroup>
         </Box>
       </StyledModal>

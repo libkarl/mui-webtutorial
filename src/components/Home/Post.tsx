@@ -15,7 +15,12 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import React from "react";
 import { Box, Checkbox } from "@mui/material";
-import { CheckBox, Favorite, FavoriteBorder } from "@mui/icons-material";
+import {
+  CheckBox,
+  Delete,
+  Favorite,
+  FavoriteBorder,
+} from "@mui/icons-material";
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -52,8 +57,8 @@ const Post = () => {
           </Avatar>
         }
         action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
+          <IconButton aria-label="delete">
+            <Delete />
           </IconButton>
         }
         title="Shrimp and Chorizo Paella"
